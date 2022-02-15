@@ -1,0 +1,46 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
+* {
+	font-family: "Special Elite", monospace !important;
+}
+
+table.templateContainer {
+	border: solid 1px black !important;
+    border-image-source: url(https://unavoidabledisaster.com/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice: 50 !important;
+    border-image-width: 10px !important;
+    border-image-repeat: stretch !important;
+    border-image-outset: 10px !important;
+    padding: 10px !important;
+    margin: 20px !important;
+    border-collapse: separate !important;
+}
+
+p {
+	font-weight: normal !important;
+    color: #444 !important;
+}
+
+a {
+	font-weight: bold !important;
+    text-decoration: underline !important;
+    color: #000 !important;
+}
+
+#templateFooter {
+	color: #f2f2f2 !important;
+    background-color: #404040;
+    font-weight: normal !important;
+}
+
+#templateFooter * {
+	color: #f2f2f2 !important;
+}
+
+#templateFooter a {
+	color: #f2f2f2 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+</style>

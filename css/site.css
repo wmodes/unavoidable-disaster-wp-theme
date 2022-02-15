@@ -1,0 +1,1646 @@
+/*
+Theme Name:     Unavoidable Disaster
+Theme URI:
+Description:    Theme for UnavoidableDisaster.com (a child of Understrap)
+Author:         Wes Modes (wmodes@gmail.com)
+Author URI:     https://UnavoidableDisaster.com
+Template:       understrap
+Version:        0.1.0
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Mali|Coming+Soon|Cutive+Mono|Special+Elite&display=swap');
+
+/* Download Google fonts */
+/*
+ * Typewriter fonts:
+ *  * Special Elite - Special Elite mimics the Smith Corona Special Elite Type Number
+ *      NR6 and Remington Noiseless typewriter models.
+ *      https://fonts.google.com/specimen/Special+Elite?selection.family=Special+Elite
+ *  * Cutive Mono - The design of Cutive, and this monospace sister family Cutive Mono,
+ *      is based on a number of classic typewriter typefaces, in particular the faces of
+ *      IBM's 'Executive,' and the older 'Smith-Premier.'
+ *      https://fonts.google.com/specimen/Cutive+Mono?selection.family=Cutive+Mono
+ * Handwritten fonts:
+ *  * Mali - Mali is a Thai and Latin family which was inspired by a 6th graders' handwriting. It exudes a carefree and naive appearance.
+ *      https://fonts.google.com/specimen/Mali
+ *  * Coming Soon - Coming Soon by Open Window is based on the handwriting from mom
+ *      when she was in 6th grade. Solid balance, masterful strokes, and just a touch
+ *      of lemonade stand for good measure!
+ *      https://fonts.google.com/specimen/Coming+Soon
+ *  */
+
+/* Variables */
+
+body {
+    --page-width:           1200px;
+    --page-height:          900px;
+    --handfont1: 			'Mali';
+    --handfont2: 			'Coming Soon';
+    --typefont1: 			'Special Elite';
+    --typefont2: 			'Cutive Mono';
+    --dialog-tail:          url(/wp-content/themes/unavoidable-disaster/img/dialog-tail2.svg);
+}
+
+:focus {
+    outline: none;
+}
+
+/**********************************************************
+ *
+ * TYPOGRAPHY
+ *
+ **********************************************************/
+
+ @font-face {
+     font-family: 'Modes Lowercase Comic Font';
+     src: url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.eot');
+     src: url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.eot?#iefix') format('embedded-opentype'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.woff2') format('woff2'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.woff') format('woff'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.ttf') format('truetype'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesLowercaseComicFont.svg#ModesLowercaseComicFont') format('svg');
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+ }
+
+ @font-face {
+     font-family: 'Modes Uppercase Comic Font';
+     src: url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.eot');
+     src: url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.eot?#iefix') format('embedded-opentype'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.woff2') format('woff2'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.woff') format('woff'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.ttf') format('truetype'),
+         url('/wp-content/themes/unavoidable-disaster/fonts/ModesUppercaseComicFont.svg#ModesUppercaseComicFont') format('svg');
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+ }
+
+body {
+    font-family:            'Special Elite', monospace;
+    color:                  #333;
+    font-size:              20px;
+}
+
+.thing-content .metadata {
+	font-family:           'Coming Soon', san-serif;
+    font-size:              20px;
+}
+
+.elementor-widget-text-editor {
+    font-family:            'Special Elite', monospace;
+}
+
+.screen-turn-modal {
+    display:                block;
+    position:               fixed;
+    left:                   50%;
+    top:                    50%;
+    background-color:       white;
+    -moz-transform:         translate(-50%, -50%);
+    -o-transform:           translate(-50%, -50%);
+    -webkit-transform:      translate(-50%, -50%);
+    transform:              translate(-50%, -50%);
+    border:                 solid 1px black;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    width:                  50%;
+    /* height:              500px; */
+    padding:                20px;
+    z-index:                10000;
+    visibility:             hidden;
+    opacity:                0;
+    transition:             opacity 0.25s;
+}
+
+.screen-turn-modal .close {
+    font-size:              5vh !important;
+}
+
+.screen-turn-modal .text {
+    text-align:             center;
+    padding:                100px 20px;
+    font-size:              6vh;
+}
+
+.loading-modal {
+    display:            block;
+    position:           fixed;
+    top:                50px;
+    left:               0;
+    width:              100%;
+    height:             100%;
+    background-color:   rgba(255,255,255,0.5);
+}
+
+.loading-modal-inner {
+    display:                block;
+    position:               fixed;
+    left:                   50%;
+    top:                    50%;
+    background-color:       white;
+    -moz-transform:         translate(-50%, -50%);
+    -o-transform:           translate(-50%, -50%);
+    -webkit-transform:      translate(-50%, -50%);
+    transform:              translate(-50%, -50%);
+    border:                 solid 1px black;
+    width:                  50%;
+    /* height:              500px; */
+    padding:                20px;
+    z-index:                10000;
+}
+
+.loading-modal .text {
+    text-align:             center;
+    padding:                100px 20px;
+    font-size:              4vw;
+    white-space:            nowrap;
+}
+
+
+/**********************************************************
+ *
+ * LINKS
+ *
+ **********************************************************/
+
+a {
+    color:                  #555;
+    text-decoration:        none;
+    font-weight:            bold;
+}
+
+a:hover {
+    color:                  #000;
+}
+
+/**********************************************************
+ *
+ * BODY STYLES
+ *
+ **********************************************************/
+
+#page-wrapper {
+    padding:                0 0 !important;
+    margin-top:             -20px;
+}
+
+article.post {
+    margin-top:             -20px;
+}
+
+figcaption {
+    font-size:              0.8rem;
+    text-align:             center;
+}
+
+body.page .framed {
+    border:                 solid 1px #888;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    padding:                10px;
+    max-width:              100%;
+    background-color:       #ddd;
+}
+
+body.page .framed .wp-block-group__inner-container {
+    border:                 solid 1px #888;
+    /*border-image-source:  url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;*/
+    padding:                20px;
+    max-width:              100%;
+    background-color:       #f8f8f8;
+}
+
+/**********************************************************
+ *
+ * HEADERS
+ *
+ **********************************************************/
+
+body.home .entry-header,
+body.single .entry-header,
+body.um-page-user .entry-header {
+    display:                none;
+}
+
+.insert-page #wrapper-navbar {
+    display:                none;
+}
+
+/**********************************************************
+ *
+ * NAVIGATION
+ *
+ **********************************************************/
+
+#wrapper-navbar {
+}
+
+#main-nav {
+    background-color:       transparent !important;
+    padding-bottom:         0;
+    margin-bottom:          0;
+    z-index:                1000;
+}
+
+#main-nav .navbar-brand {
+    display:                none;
+}
+
+#main-nav #main-menu {
+    background-color:       white !important;
+    margin-left:            auto!important;
+    margin-right:           auto!important;
+}
+
+#main-nav #main-menu .menu-item {
+    padding:                0 20px;
+}
+
+#main-nav #main-menu a {
+    color:                  black;
+}
+
+#main-nav #main-menu .nav-link {
+    padding:                0.5rem 0 0;
+}
+
+.entry-header .entry-title {
+    text-align:             center;
+    font-family:            'Special Elite', monospace;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color:                  #fff !important;
+    text-decoration:        none;
+    background-color:       #888 !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color:                  #16181b;
+    text-decoration:        none;
+    background-color:       #f4f4f4 !important;
+}
+
+#main-menu .user-data {
+    display:                inline-block;
+}
+
+#main-menu .menu-item-347 {
+    padding:                0 0 0 50px !important;
+}
+
+#main-menu .menu-item-586 {
+    padding:                6px 0 0 50px !important;
+}
+
+#main-menu .user-name {
+    display:                inline-block;
+    font-weight:            bold;
+    font-size:              0.9em;
+}
+
+#main-menu .mycred-my-balance-wrapper {
+    /*margin-top:           7px;*/
+    font-weight:            bold;
+    display:                inline-block;
+    font-size:              0.9em;
+}
+
+#main-menu .user-coin {
+    display:                inline-block;
+    width:                  20px;
+    height:                 22px;
+    background-image:       url(/wp-content/themes/unavoidable-disaster/img/skull-coin.png);
+    /*background-image:     url(/wp-content/themes/unavoidable-disaster/img/handdrawn-coin.png);*/
+    background-size:        cover;
+    margin:                 auto 2px -4px 6px;
+}
+
+span.coin {
+    display:                inline-block !important;
+    width:                  18px !important;
+    height:                 18px !important;
+    background-image:       url(/wp-content/themes/unavoidable-disaster/img/skull-coin.png);
+    /*background-image:     url(/wp-content/themes/unavoidable-disaster/img/handdrawn-coin.png);*/
+    background-size:        cover;
+    margin-bottom:          -4px !important;
+}
+
+
+/**********************************************************
+ *
+ * FOOTERS
+ *
+ **********************************************************/
+
+.home .pagination {
+    display:                none;
+}
+
+footer.entry-footer .cat-links,
+footer.entry-footer .tags-links,
+footer.entry-footer .edit-link {
+    display:                none;
+}
+
+
+/**********************************************************
+ *
+ * ARCHIVE AND FRONT PAGES
+ *
+ **********************************************************/
+
+.page .archive-listing {
+    border:                 solid 1px #888;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    padding:                20px;
+    max-width:              100%;
+    background-color:       #ddd;
+}
+
+.page .archive-listing .row {
+    display:                -webkit-flex !important; /* Safari */
+    display:                flex !important;
+    margin-bottom:          10px !important;
+    background-color:       #fefefe;
+    margin-left:            0 !important;
+    margin-right:           0 !important;
+    padding:                10px;
+}
+
+.pip-nav {
+    height:                 25px;
+}
+
+.pip-nav ul {
+    padding:                0;
+    list-style-type:        none;
+}
+
+.pip-nav-prev {
+    float:                  left;
+}
+
+.pip-nav-prev:before {
+    content:                "< ";
+}
+
+.pip-nav-next {
+    float:                  right;
+}
+
+.pip-nav-next:after {
+    content:                " >";
+}
+
+/**********************************************************
+ *
+ * EXTRAS
+ *
+ **********************************************************/
+
+/* Like/dislike */
+
+.wpulike-notification .wpulike-message.wpulike-success {
+    border:                 solid 1px #888;
+    background-color:       #f4f4f4;
+    background-image:       url(/wp-content/themes/unavoidable-disaster/img/light-crosshatch.jpg);
+    background-size:        cover;
+    background-repeat:      no-repeat;
+    font-weight:            900;
+    color:                  #000;
+}
+
+.wpulike-notification .wpulike-message.wpulike-error {
+    border:                 solid 1px #888;
+    background-color:       #444;
+    background-image:       url(/wp-content/themes/unavoidable-disaster/img/dark-crosshatch.jpg);
+    background-size:        cover;
+    background-repeat:      no-repeat;
+    font-weight:            900;
+    color:                  #fff;
+}
+
+.wpulike-notification .wpulike-message.wpulike-success:before {
+    filter:                 invert(1);
+}
+
+/*
+<div class="wpulike-notification">
+    <div class="wpulike-message wpulike-success">Duly noted.</div>
+    <div class="wpulike-message wpulike-error">Oh, Wah.</div>
+    <div class="wpulike-message wpulike-success">Duly noted.</div></div><div class="wpulike-notification"><div class="wpulike-message wpulike-success">Duly noted.</div><div class="wpulike-message wpulike-error">Oh, Wah.</div><div class="wpulike-message wpulike-success">Duly noted.</div></div>
+*/
+
+.most-liked-text, .most-commented-text {
+    text-align:             center;
+    font-size:              0.9em;
+}
+
+/* .single .most-liked-text,
+.single .most-commented-text {
+    display: none;
+} */
+
+/**********************************************************
+ *
+ * SUBMISSION FORM
+ *
+ **********************************************************/
+
+.wpcf7 {
+    max-width:              100% !important;
+    width:                  1200px !important;
+    min-width:              600px !important;
+}
+
+.wpcf7-form {
+    border:                 solid 1px #888;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    padding:                10px;
+    max-width:              100%;
+    background-color:       #ddd;
+}
+
+.wpcf7-form .row {
+    display:                -webkit-flex !important; /* Safari */
+    display:                flex !important;
+    margin-bottom:          10px !important;
+}
+
+.wpcf7-form .field {
+    border:                 solid 1px #888;
+    background-color:       #f4f4f4;
+    padding:                10px;
+    /* make it fill out the full height of the flexbox column */
+    height:                 100%;
+}
+
+/* tags in columns */
+.wpcf7-form-control.field-tags {
+    columns: 200px;
+}
+.wpcf7-form-control.field-tags .wpcf7-list-item {
+    display: block;
+    margin: 5px 0 10px 22px;
+    margin-left: 22px;
+    margin-bottom: 8px;
+    text-indent: -22px;
+    line-height: 85%;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .container {
+    max-width:  100% !important;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .columns.six,
+.cf7sg-container .cf7-smart-grid.has-grid .columns.one-half {
+    width: 48.5% !important;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .columns.nine,
+.cf7sg-container .cf7-smart-grid.has-grid .columns.three-fourths {
+    width: 74% !important;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .columns.three,
+.cf7sg-container .cf7-smart-grid.has-grid .columns.one-fourth {
+    width: 23% !important;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .row.divider-after {
+    position: relative;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .row.divider-after:before {
+    content:            "";
+    display:            block !important;
+    position:           absolute;
+    bottom:             0;
+    width:              100%;
+    border-top:         3px dashed #444;
+}
+
+.cf7sg-container .cf7-smart-grid.has-grid .row.divider-after:after {
+    content:            "optional";
+    display:            inline-block;
+    margin:             0 auto -10px auto;
+    background-color:   #ddd;
+    z-index:            1;
+    padding:            0 8px;
+}
+
+.wpcf7-form .field.submit-button {
+    border:             inherit;
+    background:         inherit;
+    margin-bottom:      -30px;
+}
+
+input.wpcf7-form-control.wpcf7-text::placeholder {
+    color:              #bbb;
+}
+
+.cf7-smart-grid .thumbnail {
+    position:           relative;
+}
+
+.cf7-smart-grid .thumbnail .info-tip {
+    width:              100%;
+    text-align:         center;
+    position:           absolute;
+    bottom:             0;
+}
+
+body.page-id-968 #wrapper-navbar,
+body.page-id-968 .banner-image {
+    display:            none;
+}
+
+body.page-id-968 #page-wrapper {
+    margin-top:         inherit !important;
+
+}
+
+body.page-id-968 {
+    font-size:          16px !important;
+}
+
+
+/**********************************************************
+ *
+ * LOGIN/REGISTRATION FORM
+ *
+ **********************************************************/
+
+.um {
+    min-width:              600px !important;
+    border:                 solid 1px #888;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    padding:                10px !important;
+    max-width:              100%;
+    background-color:       #ddd;
+}
+
+.um-form {
+    border:                 solid 1px #888;
+    border:                 solid 1px #888;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    2px;
+    background-color:       #f8f8f8;
+    padding:                10px;
+    height:                 100%;
+}
+
+.um-field-label {
+    margin:         0;
+}
+
+
+/**********************************************************
+ *
+ * PROFILE
+ *
+ **********************************************************/
+
+
+.um-header .the-badge img, .um-member .the-badge img {
+    height:         75px !important;
+    width:          75px !important;
+}
+
+
+.um-page-user .um-field {
+    display:            -webkit-box;
+    display:            -webkit-flex;
+    display:            -moz-box;
+    display:            -ms-flexbox;
+    display:            flex;
+    -webkit-flex-wrap:  wrap;
+    -ms-flex-wrap:      wrap;
+    flex-wrap:          wrap;
+    margin-right:       -15px;
+    margin-left:        -15px;
+}
+
+.uimob800-hide[title=Comments] {
+    display: none;
+}
+
+/* borrowed from bootstrap */
+.um-page-user .um-field-label,
+.um-page-user .um-field-area {
+    position:           relative;
+    width:              100%;
+    padding-right:      15px;
+    padding-left:       15px;
+}
+
+/* borrowed from bootstrap col-sm-3 */
+@media (min-width: 576px) {
+    .um-page-user .um-field-label {
+        -webkit-box-flex:   0;
+        -webkit-flex:       0 0 25%;
+        -moz-box-flex:      0;
+        -ms-flex:           0 0 25%;
+        flex:               0 0 25%;
+        max-width:          25%;
+    }
+}
+
+/* borrowed from bootstrap col-sm-6 */
+@media (min-width: 576px) {
+    .um-page-user .um-field-area {
+        -webkit-box-flex:   0;
+        -webkit-flex:       0 0 50%;
+        -moz-box-flex:      0;
+        -ms-flex:           0 0 50%;
+        flex:               0 0 50%;
+        max-width:          50%;
+    }
+}
+
+.um-page-user .um-profile-body {
+    padding-left:       250px;
+}
+
+/* break header up a bit */
+.um-page-user .um-meta :last-child {
+    display:            block;
+    height:             inherit;
+}
+.um-page-user .um-meta :nth-last-child(2) {
+    display:            none;
+}
+
+.um-page-user .um-meta-text {
+    font-size:          1rem !important;
+}
+
+.um-page-user .um-meta span {
+    font-size:          1rem !important;
+}
+
+/**********************************************************
+ *
+ * TABLOID PAGES
+ *
+ **********************************************************/
+
+/* remove byline and date */
+.entry-meta {
+    display:        none;
+}
+
+/* make site info disappear */
+.site-info {
+    display:        none;
+}
+
+.tabloid-page {
+    margin:         20px auto 20px auto;
+}
+
+/* This will kill responsiveness, but we will encourage people to turn their
+   vertical devices and zoom in as necessary */
+.tabloid-page .elementor-container,
+.tabloid-page .elementor-row,
+.tabloid-page .elementor-column,
+.tabloid-page .elementor-column-wrap {
+    width:                  1200px;
+    min-width:              1200px;
+    max-width:              1200px;
+    height:                 900px;
+    min-height:             900px;
+    max-height:             900px;
+}
+
+.tabloid-page .elementor-container {
+    border:                 solid 1px gray;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+    border-image-slice:     50;
+    border-image-width:     10px;
+    border-image-repeat:    stretch;
+    border-image-outset:    3px;
+}
+
+.tabloid-cover .elementor-container {
+    border:         none;
+}
+
+.page-num .elementor-text-editor,
+.issue-date .elementor-heading-title,
+.issue-num .elementor-heading-title,
+.elementor-heading-title
+ {
+    font-family: 'Special Elite', monospace !important;
+    color:          black !important;
+}
+
+
+/**********************************************************
+ *
+ * AD ELEMENTS
+ *
+ **********************************************************/
+
+div#content:focus {
+    /* border: none; */
+    outline:    none;
+}
+
+/* by default Elementor sets absolute positioned things to z-index: 1
+ * this creates a "stacking context" that makes our metadata box hide behind other elements.
+ * we fix this by insisting that the z-index is set to auto */
+.elementor-element.elementor-widget__width-auto.elementor-absolute.elementor-widget.elementor-widget-wp-widget-ipw,
+.elementor-element.elementor-absolute,
+.elementor-element.elementor-fixed {
+    z-index:            inherit !important;
+}
+
+.thing-content {
+    display:            inline-block;
+}
+
+body.single-thing .thing-content {
+  position:           absolute;
+  left:               0;
+}
+
+/*
+ * Positioning Metadata
+ */
+
+.thing-content .metadata {
+  /* position:               absolute; */
+  width:                  25vw;
+  min-width:              300px;
+  border:                 solid 1px black;
+  border-radius:          10px;
+  border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+  border-image-slice:     50;
+  border-image-width:     10px;
+  border-image-repeat:    stretch;
+  border-image-outset:    1px;
+  margin:                 10px;
+  padding:                10px;
+  background-color:       white;
+  visibility:             hidden;
+  opacity:                0;
+  transition:             opacity 0.25s;
+  position:               absolute;
+  top:                    0;
+  /* this should be in front of everything */
+  z-index:                1000;
+  font-size:              0.9rem;
+  /* break long words and urls */
+  /* These are technically the same, but use both */
+  overflow-wrap:          break-word;
+  word-wrap:              break-word;
+  /* Instead use this non-standard one: */
+  word-break:             break-word;
+}
+
+.thing-content .metadata .tail {
+    width:              75px;
+    height:             27px;
+    position:           absolute;
+    background-image:   url("/wp-content/themes/unavoidable-disaster/img/dialog-tail2.svg");
+    background-repeat:  no-repeat;
+    background-size:    cover;
+    z-index:            1000;
+    /* This allows positioning the dialog bubble tail to fail gracefully */
+    -moz-transform:     rotate(90deg);
+    -o-transform:       rotate(90deg);
+    -webkit-transform:  rotate(90deg);
+    transform:          rotate(90deg);
+    top:                -49px;
+    left:               132px;
+}
+
+.thing-content .metadata.toright {
+    transform: translateX(100%) !important;
+    right: -10px !important;
+}
+
+.thing-content .metadata.toleft {
+    transform: translateX(-100%) !important;
+    left: 10px !important;
+}
+
+.thing-content .metadata.tomargin {
+    right: 0 !important;
+}
+
+.thing-content .tail.toright {
+  right:              3px;  /* takes into acct wobbly border */
+  left:               auto !important;
+  -moz-transform:     translate(100%) rotate(180deg) !important;
+  -o-transform:       translate(100%) rotate(180deg) !important;
+  -webkit-transform:  translate(100%) rotate(180deg) !important;
+  transform:          translate(100%) rotate(180deg) !important;
+}
+
+.thing-content .tail.toleft {
+  left:               3px; /* takes into acct wobbly border */
+  right:              auto !important;
+  -moz-transform:     translate(-100%) rotate(0deg) !important;
+  -o-transform:       translate(-100%) rotate(0deg) !important;
+  -webkit-transform:  translate(-100%) rotate(0deg) !important;
+  transform:          translate(-100%) rotate(0deg) !important;
+}
+
+.thing-content .metadata.full {
+    width: 1150px;
+    margin-left: 25px;
+    transform: translateX(0) !important;
+}
+
+.thing-content .metadata.full .tail {
+  display: none;
+}
+
+/*
+ * Formatting Metadata
+ */
+
+.thing-content .metadata {
+    color:              #000;
+}
+
+.thing-content .metadata a {
+    text-decoration:    underline !important;
+}
+
+.thing-content .metadata.font1 {
+    font-family:        'Mali';
+    font-size:          1rem;
+}
+.thing-content .metadata.font2 {
+    font-family:        'Coming Soon';
+    font-size:          1rem;
+}
+.thing-content .metadata.font3 {
+    font-family:        'Special Elite';
+    font-size:          1rem;
+}
+.thing-content .metadata.font4 {
+    font-family:        'Cutive Mono';
+    font-size:          1rem;
+}
+
+/* Micro adjustments of various things */
+
+.elementor-widget-text-editor {
+    font-size:          18px;
+}
+
+.thing-content .metadata h2 {
+    font-size:          1.75rem;
+    text-align:         center;
+}
+
+.thing-content .metadata h3 {
+    font-size:          1.3rem;
+    text-align:         center;
+}
+
+.thing-content .metadata .contributor {
+    margin-top:         5px;
+    font-size:          0.9rem;
+}
+
+/* Like box */
+
+.wpulike {
+    text-align:         center;
+    padding:            5px 0 0 0;
+}
+
+/* Ad hover effects */
+
+.thing-content.clickable .content {
+  cursor: pointer;
+}
+
+.thing-content.clickable:not(.animated) .content:after {
+    /* this prevents the .content:after element from blocking clicks below.  Yet the hover will still work because it is attached to the parent .content element */
+    pointer-events:         none;
+    content:                '';
+    position:               absolute;
+    width:                  100%;
+    height:                 100%;
+    left:                   0;
+    top:                    0;
+    z-index:                100;
+    opacity:                0;
+    box-shadow:             0 0 30px 10px rgba(88, 66, 43, 0.5);
+    transition:             opacity 0.5s;
+    background-image: linear-gradient(to right, #fff 50%, #000 50%), linear-gradient(to right, #fff 50%, #000 50%), linear-gradient(to bottom, #fff 50%, #000 50%), linear-gradient(to bottom, #fff 50%, #000 50%);
+    background-size: 20px 2px, 20px 2px, 2px 20px, 2px 20px;
+    background-position: 0 0,  0 100%,  0 0,  100% 0;
+    background-repeat: repeat-x,  repeat-x,  repeat-y,  repeat-y;
+    animation: marching-ants-border 0.75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+.thing-content.clickable .content:hover:after {
+    opacity:                0.75;
+    animation-play-state: running;
+}
+
+.mostliked .thing-content .content-inner:after,
+.thing-content.mostliked .content-inner:after {
+    content:                '';
+    position:               absolute;
+    width:                  100%;
+    height:                 100%;
+    border:                 dotted 6px #ff0000;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/border-red-hearts.png);
+    border-image-slice:     10;
+    border-image-width:     10px;
+    border-image-repeat:    round;
+    border-image-outset:    10px;
+    left:                   0%;
+    top:                    0%;
+    /* z-index:                99; */
+    box-shadow:             none !important;
+    animation-name:         expanding-border;
+    animation-duration:     1.75s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    opacity:                1;
+}
+
+.thing-content.mostcommented .content-inner:after {
+    content:                '';
+    position:               absolute;
+    width:                  100%;
+    height:                 100%;
+    border:                 dotted 6px #ff0000;
+    border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/border-black-arrows.png);
+    border-image-slice:     10;
+    border-image-width:     10px;
+    border-image-repeat:    round;
+    border-image-outset:    10px;
+    left:                   0%;
+    top:                    0%;
+    /* z-index:                99; */
+    box-shadow:             none !important;
+    animation-name:         contracting-border;
+    animation-duration:     1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    opacity:                1;
+}
+
+/* The animation code */
+@keyframes expanding-border {
+    from {
+        border-image-outset: 10px;
+    }
+    to {
+        border-image-outset: 30px;
+    }
+}
+
+@keyframes contracting-border {
+    from {
+        border-image-outset: 30px;
+    }
+    to {
+        border-image-outset: 10px;
+    }
+}
+
+@keyframes marching-ants-border {
+  0% {
+    background-position: 0 0,  0 100%,  0 0,  100% 0;
+  }
+  100% {
+    background-position: 40px 0, -40px 100%, 0 -40px, 100% 40px;
+  }
+}
+
+/* Misc atomic styles for ad elements */
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.fullheight {
+    height:         895px !important;
+    min-height:     895px !important;
+    max-height:     895px !important;
+    width:          auto;
+    top:            0 !important;
+}
+
+.fullheight .content img {
+    height:         895px !important;
+}
+
+.fullpage {
+    width:          1195px !important;
+    min-width:      1195px !important;
+    max-width:      1195px !important;
+    height:         898px !important;
+    min-width:      898px !important;
+    max-height:     898px !important;
+    top:            0 !important;
+    left:           0 !important;
+}
+
+.fullpage .elementor-text-editor,
+.fullpage.elementor-widget-html {
+    width:          1195px !important;
+    min-width:      1195px !important;
+    max-width:      1195px !important;
+    height:         898px !important;
+    min-width:      898px !important;
+    max-height:     898px !important;
+    top:            0 !important;
+    left:           0 !important;
+}
+
+.fullpage .content {
+    width: 1195px;
+    height: 895px;
+}
+
+.fullpage .content img,
+.fullpage .elementor-image img {
+    width:          1195px !important;
+}
+
+.note {
+    text-align:     center;
+    color:          black;
+    padding:        15px 15px 15px 5px;
+    font-family:    'Special Elite', monospace !important;
+}
+
+.elementor-element.border {
+    border: none !important;
+}
+
+.border .thing-content .content,
+.border .elementor-image img,
+.border .elementor-text-editor,
+.border.elementor-widget-html {
+    border-style:   solid !important;
+    border-width:   2px;
+    border-color:   #888 !important;
+}
+
+.thin .thing-content .content,
+.thin .elementor-image img,
+.thin .elementor-text-editor,
+.thin.elementor-widget-html {
+    border-width:   1px !important;
+}
+
+.thick .thing-content .content,
+.thick .elementor-image img,
+.thick .elementor-text-editor,
+.thick.elementor-widget-html {
+    border-width:   6px !important;
+}
+
+.white .thing-content .content,
+.white .elementor-image img,
+.white .elementor-text-editor,
+.white.elementor-widget-html {
+    border-color:   #fff !important;
+}
+
+.black .thing-content .content,
+.black .elementor-image img,
+.black .elementor-text-editor,
+.black.elementor-widget-html {
+    border-color:   #000 !important;
+}
+
+.round .thing-content .content,
+.round .elementor-image img,
+.round .elementor-text-editor,
+.round.elementor-widget-html {
+    border-radius:  10px;
+}
+
+.shadow .thing-content .content,
+.shadow .elementor-image img,
+.shadow .elementor-text-editor,
+.shadow.elementor-widget-html {
+    box-shadow:     3px 3px 10px rgba(0,0,0,0.5);
+}
+
+.bigshadow .thing-content .content,
+.bigshadow .elementor-image img,
+.bigshadow .elementor-text-editor,
+.bigshadow.elementor-widget-html {
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.5);
+}
+
+.zine .thing-content .content,
+.zine .elementor-image img,
+.zine .elementor-text-editor,
+.zine.elementor-widget-html {
+    border: solid 20px #f0f0f0;
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.5), inset 10px 0 20px -5px rgba(0,0,0,0.5);
+    border-image-source: url(/wp-content/themes/unavoidable-disaster/img/zine-corners.png);
+    border-image-outset: 5px;
+    border-image-repeat: round;
+    border-image-slice: 50;
+    border-image-width: 50px;
+}
+
+.askew:nth-child(even) .thing-content .content,
+.askew:nth-child(even) .elementor-image img,
+.askew:nth-child(even) .elementor-text-editor,
+.askew:nth-child(even).elementor-widget-html {
+    -moz-transform:     rotate(-2deg);
+    -o-transform:       rotate(-2deg);
+    -webkit-transform:  rotate(-2deg);
+    transform:          rotate(-2deg);
+}
+
+.askew:nth-child(odd) .thing-content .content,
+.askew:nth-child(odd) .elementor-image img,
+.askew:nth-child(odd) .elementor-text-editor,
+.askew:nth-child(odd).thick.elementor-widget-html {
+    -moz-transform:     rotate(2deg);
+    -o-transform:       rotate(2deg);
+    -webkit-transform:  rotate(2deg);
+    transform:          rotate(2deg);
+}
+
+.askew-left .thing-content .content,
+.askew-left .elementor-image img,
+.askew-left .elementor-text-editor,
+.askew-left.elementor-widget-html {
+    -moz-transform:     rotate(-2deg);
+    -o-transform:       rotate(-2deg);
+    -webkit-transform:  rotate(-2deg);
+    transform:          rotate(-2deg);
+}
+
+.askew-right .thing-content .content,
+.askew-right .elementor-image img,
+.askew-right .elementor-text-editor,
+.askew-right.elementor-widget-html {
+    -moz-transform:     rotate(2deg);
+    -o-transform:       rotate(2deg);
+    -webkit-transform:  rotate(2deg);
+    transform:          rotate(2deg);
+}
+
+.rot-27 .thing-content .content,
+.rot-27 .elementor-image img,
+.rot-27 .elementor-text-editor,
+.rot-27.elementor-widget-html {
+    -moz-transform:     rotate(27deg);
+    -o-transform:       rotate(27deg);
+    -webkit-transform:  rotate(27deg);
+    transform:          rotate(27deg);
+}
+
+.rot-neg27 .thing-content .content,
+.rot-neg27 .elementor-image img,
+.rot-neg27 .elementor-text-editor,
+.rot-neg27.elementor-widget-html {
+    -moz-transform:     rotate(-27deg);
+    -o-transform:       rotate(-27deg);
+    -webkit-transform:  rotate(-27deg);
+    transform:          rotate(-27deg);
+}
+
+.rot-45 .thing-content .content,
+.rot-45 .elementor-image img,
+.rot-45 .elementor-text-editor,
+.rot-45.elementor-widget-html {
+    -moz-transform:     rotate(45deg);
+    -o-transform:       rotate(45deg);
+    -webkit-transform:  rotate(45deg);
+    transform:          rotate(45deg);
+}
+
+.rot-neg45 .thing-content .content,
+.rot-neg45 .elementor-image img,
+.rot-neg45 .elementor-text-editor,
+.rot-neg45.elementor-widget-html {
+    -moz-transform:     rotate(-45deg);
+    -o-transform:       rotate(-45deg);
+    -webkit-transform:  rotate(-45deg);
+    transform:          rotate(-45deg);
+}
+
+.rot-90 .thing-content .content,
+.rot-90 .elementor-image img,
+.rot-90 .elementor-text-editor,
+.rot-90.elementor-widget-html {
+    -moz-transform:     rotate(90deg);
+    -o-transform:       rotate(90deg);
+    -webkit-transform:  rotate(90deg);
+    transform:          rotate(90deg);
+}
+
+.rot-neg90 .thing-content .content,
+.rot-neg90 .elementor-image img,
+.rot-neg90 .elementor-text-editor,
+.rot-neg90.elementor-widget-html {
+    -moz-transform:     rotate(-90deg);
+    -o-transform:       rotate(-90deg);
+    -webkit-transform:  rotate(-90deg);
+    transform:          rotate(-90deg);
+}
+
+.rot-117 .thing-content .content,
+.rot-117 .elementor-image img,
+.rot-117 .elementor-text-editor,
+.rot-117.elementor-widget-html {
+    -moz-transform:     rotate(117deg);
+    -o-transform:       rotate(117deg);
+    -webkit-transform:  rotate(117deg);
+    transform:          rotate(117deg);
+}
+
+.rot-neg117 .thing-content .content,
+.rot-neg117 .elementor-image img,
+.rot-neg117 .elementor-text-editor,
+.rot-neg117.elementor-widget-html {
+    -moz-transform:     rotate(-117deg);
+    -o-transform:       rotate(-117deg);
+    -webkit-transform:  rotate(-117deg);
+    transform:          rotate(-117deg);
+}
+
+body:not(.elementor-editor-active) .mouseshow .thing-content .content,
+body:not(.elementor-editor-active) .mouseshow .elementor-image img,
+body:not(.elementor-editor-active) .mouseshow .elementor-text-editor,
+body:not(.elementor-editor-active) .mouseshow.elementor-widget-html {
+  opacity: 0;
+  transition: opacity 4s;
+}
+
+body.elementor-editor-active .mouseshow .thing-content .content,
+body.elementor-editor-active .mouseshow .elementor-image img,
+body.elementor-editor-active .mouseshow .elementor-text-editor,
+body.elementor-editor-active .mouseshow.elementor-widget-html {
+  opacity: 0.5;
+}
+
+.mouseshow .thing-content .content:hover,
+.mouseshow .elementor-image img:hover,
+.mouseshow .elementor-text-editor:hover,
+.mouseshow.elementor-widget-html:hover {
+  opacity: 1!important;
+}
+
+.lick .thing-content .content:hover,
+.lick .elementor-image img:hover,
+.lick .elementor-text-editor:hover,
+.lick.elementor-widget-html:hover {
+  cursor: url('https://unavoidabledisaster.com/wp-content/uploads/2021/04/togue-cursor.png'), auto;
+}
+
+/*
+ * Animations
+ */
+
+ .medbounce {
+   animation: slowbounce 10s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+ }
+
+.slowbounce {
+  animation: slowbounce 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* The animation code */
+@keyframes slowbounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-100px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+/*
+ * Active screens
+ */
+
+/*
+  To use an active screen:
+    1) create the active screen thing-type with the following html:
+        <div class="clickborder black"></div>
+        <div class="activescreen black">
+          <iframe src="https://modes.io/interactive/parchment/?story=stories/photopia.z5.js" class="noscroll"></iframe>
+        </div>
+     2) create the cover overlay image-type
+     3) position the active screen in elementor first with class "fullpage"
+     4) position the cover overlay  in elementor with classes "clickthru fullpage"
+*/
+
+body:not(.elementor-editor-active) .clickthru.elementor-element,
+body:not(.elementor-editor-active) .clickthru .elementor-widget-container,
+body:not(.elementor-editor-active) .clickthru .elementor-element,
+body:not(.elementor-editor-active) .clickthru .elementor-image,
+body:not(.elementor-editor-active) .clickthru .elementor-image img,
+body:not(.elementor-editor-active) .clickthru .elementor-text-editor,
+body:not(.elementor-editor-active) .clickthru.rot-90.elementor-widget-html {
+     pointer-events: none;
+ }
+
+ .activescreen {
+   /* padding:          100px 0 100px 0;"> */
+ }
+
+ .activescreen iframe {
+  width:              1100px !important;
+  height:             660px !important;
+  position:           absolute;
+  top:                135px;
+  left:               50px;
+ }
+
+ .activescreen.black,
+ .activescreen.black iframe {
+   background-color: black;
+ }
+
+ .activescreen.white,
+ .activescreen.white iframe {
+   background-color: white;
+ }
+
+ .clickborder {
+   position:          absolute;
+   width:             1195px;
+   height:            895px;
+ }
+
+ .clickborder.black {
+   background-color:  black;
+ }
+
+ .clickborder.white {
+   background-color:  white;
+ }
+
+ /*
+  * Comments
+  */
+
+.comment-link {
+  text-align:         center;
+  padding:            10px;
+  font-size:          1.2em;
+}
+
+/*  comments hidden by default */
+.entry-comment-wrapper {
+  display:            none;
+}
+
+.entry-comment-wrapper.show {
+  display:            block !important;
+}
+
+/* comment modal */
+.entry-comment-wrapper {
+  position:           fixed;
+  top:                0;
+  left:               0;
+  width:              100%;
+  height:             100%;
+  background-color:   rgba(255,255,255,0);
+  z-index:            10000;
+}
+
+/* comment box */
+.entry-comment {
+  position:               absolute;
+  left:                   50%;
+  top:                    -50%;
+  background-color:       white;
+  -moz-transform:         translate(-50%, -50%);
+  -o-transform:           translate(-50%, -50%);
+  -webkit-transform:      translate(-50%, -50%);
+  transform:              translate(-50%, -50%);
+  width:                  90%;
+  height:                 100%;
+  min-height:             50%;
+  max-height:             90%;
+  padding:                10px;
+  z-index:                10002;
+  overflow:               hidden;
+  border:                 solid 1px gray;
+  border-image-source:    url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+  border-image-slice:     50;
+  border-image-width:     10px;
+  border-image-repeat:    stretch;
+  border-image-outset:    3px;
+  transition: top 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.entry-comment.show {
+  top:                    50% !important;
+}
+
+.entry-comment-inner {
+  overflow-x:             hidden;
+  overflow-y:             scroll;
+  width: 100%;
+  height: 100%;
+  min-height: 50%;
+  max-height: 96%;
+  padding-bottom: 20px;
+}
+
+.close {
+  font-size:              1.5em !important;
+  cursor:                 pointer;
+}
+
+.comments-area {
+  max-width: 90%;
+  margin: 40px auto 10px auto;
+  /* border: solid 1px gray;
+  border-image-source: url(/wp-content/themes/unavoidable-disaster/img/hand-drawn-border.png) !important;
+  border-image-slice: 50;
+  border-image-width: 10px;
+  border-image-repeat: stretch;
+  border-image-outset: 3px;
+  padding: 10px; */
+}
+
+.comments-area ol {
+  padding:                5px 0 0 10px;
+  list-style-type:        none;
+}
+
+.comments-area li {
+    margin-bottom:          10px !important;
+    background-color:       #fefefe;
+    margin-left:            0 !important;
+    margin-right:           0 !important;
+    padding:                5px 0 0 10px;
+    border-left:            solid 1px #888;
+}
+
+.comments-area .comment-author.vcard {
+    FONT-WEIGHT: 100;
+    margin-left: -25px;
+    margin-top: -10px;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.comments-area .comment-content {
+    position: relative;
+}
+
+.comments-area .wpulike {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    transform: translateY(-50px);
+}
+
+.comments-area .reply {
+    margin-top: -20px;
+}
+
+.comments-area .comment-metadata a,
+.comments-area .reply a {
+  font-size:    80%;
+  color:        #875055;
+}
+
+/*
+ * Video & Audio
+ */
+
+.meta-video {
+  display:      block;
+  width:        100%;
+  height:       200px;
+  outline:      none;
+}
+
+.issue-video {
+  display:      block;
+  width:        450px;
+  height:       300px;
+}
+
+.form-control:focus, .widget_archive select:focus, .widget_categories select:focus, .wpcf7 .wpcf7-validation-errors:focus, .wpcf7 input:focus[type=color], .wpcf7 input:focus[type=date], .wpcf7 input:focus[type=datetime-local], .wpcf7 input:focus[type=datetime], .wpcf7 input:focus[type=email], .wpcf7 input:focus[type=file], .wpcf7 input:focus[type=month], .wpcf7 input:focus[type=number], .wpcf7 input:focus[type=range], .wpcf7 input:focus[type=search], .wpcf7 input:focus[type=submit], .wpcf7 input:focus[type=tel], .wpcf7 input:focus[type=text], .wpcf7 input:focus[type=time], .wpcf7 input:focus[type=url], .wpcf7 input:focus[type=week], .wpcf7 select:focus, .wpcf7 textarea:focus {
+  border-color:    #875055;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(135, 80, 85, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(135, 80, 85, 0.25);
+}
+
+.narrow-audio-player {
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 30px;
+  overflow: hidden;
+  transform: translateY(-3px);
+}
+
+/*
+ *
+ * Speciality Items
+ *
+ */
+
+.wes-font .elementor-text-editor,
+.wes-font {
+  font-family: 'Modes Lowercase Comic Font';
+}
+
+.wes-font h1 {
+  font-family: 'Modes Uppercase Comic Font';
+}
+
+.note-vsm .elementor-text-editor,
+.note-vsm {
+  font-size: 85%;
+  width: 200px;
+  color: black;
+}
+
+.note-sm .elementor-text-editor,
+.note-sm {
+  font-size: 85%;
+  width: 300px;
+  color: black;
+}
+
+.note-md .elementor-text-editor,
+.note-md {
+  font-size: 85%;
+  width: 400px;
+  color: black;
+}
+
+.note-lg .elementor-text-editor,
+.note-lg {
+  font-size: 85%;
+  width: 500px;
+  color: black;
+}
+
+.just-right .elementor-text-editor,
+.just-right {
+  text-align: right;
+}

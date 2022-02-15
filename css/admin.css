@@ -1,0 +1,72 @@
+/* unhide hidden fields */
+.menu-item .field-description {
+    display: block !important;
+}
+
+input[type=checkbox]:disabled {
+    opacity: 1 !important;
+    color: inherit !important;
+    background: inherit !important;
+    border-color: inherit !important;
+}
+
+/*
+ * Admin Columns
+ */
+
+.column-custom_posts {
+    text-align: center !important;
+    width: 74px !important;
+}
+
+.column-primary {
+    width: 15% !important;
+}
+
+.column-featured_image {
+    max-width: 20%;
+    width: 200px !important;
+}
+
+.column-featured_image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.column-ad_expires {
+    width: 5% !important;
+    text-align: center;
+}
+
+.column-ad_added {
+    width: 5% !important;
+    text-align: center;
+}
+
+.column-slug {
+    width: 15% !important;
+}
+
+.column-author {
+    width: 10% !important;
+}
+
+.column-tags {
+    width: 10% !important;
+}
+
+.column-stats {
+    width: 5% !important;
+    text-align: center;
+}
+
+.column-comments {
+    text-align: left;
+    width: 5% !important;
+    padding: 0 !important;
+}
+
+.column-date {
+    width: 10% !important;
+}
